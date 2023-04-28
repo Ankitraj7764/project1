@@ -15,11 +15,11 @@ const Hero = () => {
           <button className="bg-[#3A5AFF] w-full md:w-72 h-12 rounded-md font-bold text-white font-montserrat mt-8 md:mt-16 2xl:my-4 2xl:w-64">Sign up for free</button>
           <p className="font-['Montserrat'] my-8 text-[18px] font-[1000] ">Or download the app:</p>
          <div className="flex ">
-                <img className="pr-4" src={require("./image/app.png")} alt="app" />
-                <img src={require("./image/google.png")} alt="google" />
+                <img className="pr-4" src={require("../image/app.png")} alt="app" />
+                <img src={require("../image/google.png")} alt="google" />
             </div> </div>
         <div className="heroright flex-1   md:w-1/2 md:my-0">
-          <img className="w-full" src={require("./image/hero.jpg")} alt="" />
+          <img className="w-full" src={require("../image/hero.jpg")} alt="" />
         </div>
       </div>
       
