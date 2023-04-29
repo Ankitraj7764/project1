@@ -15,12 +15,13 @@ const Navbar = () => {
                     </div>
 
                 </div>
-                <ul className="flex-1 flex-row-reverse mx-4 ">
+                <ul className="flex-1 flex-row-reverse mx-3 ">
                     <div className="flex flex-row-reverse text-xl">
                         <li className=" p-2 "><Link to="#news"><img src={require("../image/group16.png")} alt="" /></Link></li>
+                        <li className=" border-2 rounded-lg w-24 h-10 mx-2 p-1 "><Link to="/login" className="flex align-middle justify-center ">Login</Link></li>
 
-                        <li className=" border-2 rounded-sm w-24 h-10 mx-4 p-1 "><Link to="/register" className="flex align-middle justify-center ">Register</Link></li>
-                        <li className="bg-[#3A5AFF] rounded-md text-white w-24 h-10 mx-4 p-1"><a href="#home" className="flex align-middle justify-center py-1">Home</a></li>
+                        <li className=" border-2 rounded-lg w-24 h-10 mx-2 p-1 "><Link to="/register" className="flex align-middle justify-center ">Register</Link></li>
+                        <li className="bg-[#3A5AFF] rounded-lg text-white w-24 h-10 mx-2 p-1"><Link to="/" className="flex align-middle justify-center py-1">Home</Link></li>
 
 
                         <li className="dropdown p-1 ">
