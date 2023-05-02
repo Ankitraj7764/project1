@@ -22,11 +22,6 @@ const Login = () => {
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
             <form>
 
-
-
-
-
-
               <div className="relative mb-6" data-te-input-wrapper-init>
                 <input
                   type="text"

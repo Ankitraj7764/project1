@@ -6,12 +6,12 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar mt-4 mb-800 pr-4 py-0 flex flex-wrap ">
+            <div className="navbar mt-4 mb-800 pr-4 py-0 flex flex-wrap  ">
                 <div className="heading flex-1">
-                    <div className="flex">
+                    <div className="flex" >
                         <img className="mt-3 pl-8 h-10  mr-2" src={require("../image/Logo.png")} alt="" />
-                        <h1 className=" text-[50px] w-[351px] h-[51px] top-[43px] left-[132px] font-['Vibur']
-                       ">Kurtis Classrom</h1>
+                        <h1 className=" text-[50px] bold font-['Vibur']
+                       ">Kurtis Classroom</h1>
                     </div>
 
                 </div>
