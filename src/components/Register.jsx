@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 
 const Register = () => {
-  const [user, setUser] = useState({ name: "", email: "",imageurl: "", password: "",  score: 0 })
+  const [user, setUser] = useState({ name: "", emailid: "",imageurl: "", password: "",  score: 0  })
   let name,value;
   const handleChange=(e)=>{
     name=e.target.name;
@@ -12,11 +12,15 @@ const Register = () => {
   }
   const dataPost=async(e)=>{
     e.preventDefault();
-    const {name,email,password,imageurl,score}=user;
+    user.score=parseInt(user.score)
+    const {name,emailid,password,imageurl,score}=user;
      
     const res= await axios.post("http://localhost:8080/user",{
-      name,email,imageurl,password,score
+      name,'email-id':emailid,'profile-picture-url':imageurl,password,score
     })
+    if(res){
+      alert("Registation completed ! please login")
+    }
 
   }
   return (
@@ -32,7 +36,7 @@ const Register = () => {
                 <img
                   src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                   className="w-full"
-                  alt="Sample image" />
+                  alt="Sample" />
               </div>
 
 
@@ -54,10 +58,10 @@ const Register = () => {
 
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
-                      type="text" name="email"
+                      type="text" name="emailid"
                       className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                       id="exampleFormControlInput2"
-                      placeholder="Email address" value={user.email} onChange={handleChange} />
+                      placeholder="Email address" value={user.emailid} onChange={handleChange} />
                    
                   </div>
 
@@ -73,7 +77,7 @@ const Register = () => {
 
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
-                      type="text" name='imageurl'
+                      type="text" name="imageurl"
                       className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                       id="exampleFormControlInput22"
                       placeholder="url"  value={user.imageurl} onChange={handleChange}/>
@@ -82,7 +86,7 @@ const Register = () => {
 
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
-                      type="number" name="score"
+                      type="text" name="score"
                       className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                       id="exampleFormControlInput22"
                       placeholder="Score" value={user.score} onChange={handleChange} />
