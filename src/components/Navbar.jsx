@@ -6,39 +6,7 @@ const Navbar = () => {
 
     return (
         <>
-            {/* <div className="navbar mt-1 md:mt-2 lg:mt-4 mb-800 lg:pr-4 md:pr-2 pr-0 py-0 flex flex-wrap  ">
-                <div className="heading flex-1 ">
-                    <div className="flex " >
-                        <img className="mt-3 pl-0 md:pl-4 lg:pl-8 h-10  mr-0 md:mr-1 lg:mr-2" src={require("../image/Logo.png")} alt="" />
-                        <h1 className=" text-[20px] bold font-['Vibur'] md:text-[30px] lg:text-[50px]
-                       ">Kurtis Classroom</h1>
-                    </div>
-
-                </div>
-                <ul className="  flex-1 flex-row-reverse md:ml-1 ml-1  ">
-                    <div className="flex  flex-col-reverse  text-xl md:flex-col-reverse lg:flex-row-reverse md:my-3 my-3 md:ml-12 ml-12 lg:ml-auto ">
-                        <li className=" p-2 "><Link to="#news"><img src={require("../image/group16.png")} alt="" /></Link></li>
-                        <li className=" border-2 rounded-lg w-24 h-10  p-1   mx-0 md:mx-2 lg:mx-4"><Link to="/login" className="flex align-middle justify-center ">Login</Link></li>
-
-                        <li className=" border-2 rounded-lg w-24 h-10 p-1  mx-0 md:mx-2 lg:mx-4"><Link to="/register" className="flex align-middle justify-center ">Register</Link></li>
-                        <li className="bg-[#3A5AFF] rounded-lg text-white w-24 h-10  p-1 mx-0 md:mx-2 lg:mx-4"><Link to="/" className="flex align-middle justify-center py-1">Home</Link></li>
-
-
-                        <li className="dropdown p-1  mx-0 md:mx-2 lg:mx-4">
-                            <select className='p-0' name="cars" id="cars">
-
-
-                                <option value="opel">En</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                            <div className="dropdown-content">
-
-                            </div>
-                        </li>
-                    </div>
-
-                </ul>
-            </div> */}
+          
   
 <nav className="bg-white border-gray-200 dark:bg-gray-900 ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between  p-4">
