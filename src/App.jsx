@@ -12,6 +12,7 @@ import { useState } from 'react';
 
 import NavbarModule from './components/loggedin/NavbarModule';
 import Footer from './components/loggedin/Footer';
+import LevelCard from './components/loggedin/level/LevelCard';
 
 
 
@@ -38,10 +39,11 @@ function App() {
               <Login/>
             </>}/>
           <Route path="/modules" element={<Loggedin />} />
-          <Route path="/module" Component={() =>
+          <Route path="/level" Component={() =>
             <>
             <NavbarModule/>
-             
+             <LevelCard/>
+             <Footer/>
             </>}/>
 
 
