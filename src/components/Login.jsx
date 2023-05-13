@@ -1,34 +1,38 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 
 
+
+
 function Login() {
-  const [email, setEmail] = useState('');
+  const [emailid, setEmailid] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-
-  const handleSubmit=async(event)=> {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-  const response=  axios.post("http://localhost:8080/login", { email, password })
-      
+    const response = await axios.post("http://localhost:8080/login", { emailid, password })
+    console.log(response)
+    const val = await response.json;
+    console.log(val)
+    if (response.status === 201) {
+      console.log(response)
+      localStorage.setItem('user', JSON.stringify({ emailid, password }));
+      navigate("/modules")
 
-        if (response) {
+    }
+      else {
 
-          localStorage.setItem('user', JSON.stringify({ email, password }));
-          alert("successfully logged-in")
-         
-        }
-          else {
+        alert('Invalid ');
+      }
 
-          alert('Invalid ');
-        }
-      
-      
-  }
+
+    }
+  
   return (
     <><div>
       <section className="h-screen">
@@ -50,7 +54,7 @@ function Login() {
 
                 <div className="relative mb-6" data-te-input-wrapper-init>
                   <input
-                    type="text" value={email} onChange={event => setEmail(event.target.value)}
+                    type="text" value={emailid} onChange={event => setEmailid(event.target.value)}
                     className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                     id="exampleFormControlInput2"
                     placeholder="Email address" />
