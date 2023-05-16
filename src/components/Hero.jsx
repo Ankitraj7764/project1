@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const Hero = () => {
     return (
@@ -11,8 +13,10 @@ const Hero = () => {
             <p className="text-[#2F281E]  text-xl md:text-xl font-montserrat leading-tight mt-4 lg:my-4">Any subject, in any language, on any device, for all ages!</p>
           
           </div>
-         
+         <Link to="/register">
+
           <button className="bg-[#3A5AFF] w-full md:w-72 h-12 rounded-md font-bold text-white font-montserrat mt-8 md:mt-16 lg:my-4 lg:w-64">Sign up for free</button>
+         </Link>
           <p className="font-['Montserrat'] my-8 text-[18px] font-[1000] ">Or download the app:</p>
          <div className="flex ">
                 <img className="pr-4" src={require("../image/app.png")} alt="app" />

@@ -7,16 +7,19 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Loggedin from './components/loggedin/Loggedin';
 
-import { useState } from 'react';
+
 
 
 import NavbarModule from './components/loggedin/NavbarModule';
 import Footer from './components/loggedin/Footer';
 import LevelCard from './components/loggedin/level/LevelCard';
+import Forgot from './components/Forgot';
+
 
 
 
 function App() {
+
 
 
   return (
@@ -33,6 +36,7 @@ function App() {
               <Hero />
              <Footer/>
             </>} />
+            <Route path='/forgot-password' element={<Forgot/>}></Route>
           <Route path="/login" Component={() =>
             <>
               <Navbar />
@@ -54,7 +58,7 @@ function App() {
               <Register/>
             </>}/>
         </Routes>
-     
+    
       </BrowserRouter>
      
       </div>

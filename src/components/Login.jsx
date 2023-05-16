@@ -16,11 +16,9 @@ function Login() {
     event.preventDefault();
 
     const response = await axios.post("http://localhost:8080/login", { emailid, password })
-    console.log(response)
-    const val = await response.json;
-    console.log(val)
-    if (response.status === 201) {
-      console.log(response)
+   
+    if (response.status >= 201 && response.status<=226) {
+  
       localStorage.setItem('user', JSON.stringify({ emailid, password }));
       navigate("/modules")
 
@@ -79,14 +77,14 @@ function Login() {
                       type="checkbox"
                       id="exampleCheck2" />
                     <label
-                      className="inline-block pl-[0.15rem] hover:cursor-pointer"
+                      className="inline-block pl-[0.15rem] hover:cursor-pointer mr-2 md:mr-3 lg:mr-5 xl:mr-5 "
                       for="exampleCheck2">
                       Remember me
                     </label>
+
+                  <a href="/forgot-password" className="border-2 p-0.5 rounded-lg shadow-sm">Forgot password?</a>
                   </div>
 
-
-                  <a href="#!">Forgot password?</a>
                 </div>
 
 
@@ -104,7 +102,7 @@ function Login() {
                     Don't have an account?
                     <Link
                       to="/register"
-                      className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                      className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700 ml-3"
                     >Register</Link>
 
                   </p>

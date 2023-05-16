@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import swal from 'sweetalert';
+
 
 const Register = () => {
   const [user, setUser] = useState({ name: "", emailid: "",imageurl: "", password: "",  score: 0  })
@@ -19,7 +21,8 @@ const Register = () => {
       name,'email-id':emailid,'profile-picture-url':imageurl,password,score
     })
     if(res){
-      alert("Registation completed ! please login")
+   
+      swal("Registation completed ! please login")
     }
 
   }
@@ -40,13 +43,13 @@ const Register = () => {
               </div>
 
 
-              <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-                <h1 className="text-lg rounded-md border-2 my-4 p-auto pl-3 ">Registration form</h1>
-                <form method="POST">
+              <div className="mb-12 md:mb-0 md:w-5/12 lg:w-4/12 xl:w-5/12 flex flex-col justify-center items-start ">
+             
+                <form method="POST" >
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
                       type="text" name="name"
-                      className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear "
+                      className=" peer block min-h-[auto] w-full rounded border-1 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear "
                       id="exampleFormControlInput2"
                       placeholder="Name"  value={user.name} onChange={handleChange}/>
                   
@@ -59,7 +62,7 @@ const Register = () => {
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
                       type="text" name="emailid"
-                      className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
+                      className="peer block min-h-[auto] w-full rounded border-1 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                       id="exampleFormControlInput2"
                       placeholder="Email address" value={user.emailid} onChange={handleChange} />
                    
@@ -69,7 +72,7 @@ const Register = () => {
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
                       type="password" name="password"
-                      className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
+                      className="peer block min-h-[auto] w-full rounded border-1 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                       id="exampleFormControlInput22"
                       placeholder="Password" value={user.password} onChange={handleChange} />
 
@@ -77,21 +80,14 @@ const Register = () => {
 
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
-                      type="text" name="imageurl"
-                      className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
+                      type="file" name="imageurl"
+                      className="peer block min-h-[auto] w-full rounded border-1 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                       id="exampleFormControlInput22"
-                      placeholder="url"  value={user.imageurl} onChange={handleChange}/>
+                      placeholder="Upload Image"  value={user.imageurl} onChange={handleChange}/>
                  
                   </div>
 
-                  <div className="relative mb-6" data-te-input-wrapper-init>
-                    <input
-                      type="text" name="score"
-                      className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
-                      id="exampleFormControlInput22"
-                      placeholder="Score" value={user.score} onChange={handleChange} />
-                    
-                  </div>
+                  
                      <div className="text-center lg:text-left">
                     <button
                       type="submit"

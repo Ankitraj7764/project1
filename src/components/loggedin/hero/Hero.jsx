@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Navbar } from '../NavbarModule'
 import Pickup from './Pickup'
 
@@ -8,10 +8,14 @@ import Pickup from './Pickup'
 
 
 const Hero = () => {
+
+
+ 
   return (
     <>
    
-  <div className="flex justify-center md:ml-96 lg:ml-96 flex-wrap">
+  <div className="flex justify-center  flex-wrap">
+
     <Pickup/>
     </div>
     
