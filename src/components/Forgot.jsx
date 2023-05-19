@@ -12,6 +12,7 @@ const Forgot = () => {
       console.log(data)
       if(data.data.status>=200 && data.data.status<=226){
         swal("code sent")
+        prompt("enter code")
       }
     }
   return (

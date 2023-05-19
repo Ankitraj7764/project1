@@ -4,21 +4,35 @@ import swal from 'sweetalert';
 
 
 const Register = () => {
-  const [user, setUser] = useState({ name: "", emailid: "",imageurl: "", password: "",  score: 0  })
+  const [user, setUser] = useState({ name: "", emailid: "", password: "" })
+  const [imageurl,setImageurl]=useState("");
+  const preset_key="";
+  const cloud_name="dh5cpqscd";
+  const handleImage=async(e)=>{
+    const files=e.target.files;
+    const formData= new FormData();
+    formData.append('file',files[0]);
+    formData.append("upload_preset","project_1");
+  
+   const response= await axios.post("https://api.cloudinary.com/v1_1/dh5cpqscd/image/upload",{formData})
+   const data= await response.json();
+    console.log(data)
+  }
   let name,value;
   const handleChange=(e)=>{
     name=e.target.name;
     value=e.target.value
     setUser({...user,[name]:value})
     console.log(user)
+    console.log(imageurl)
   }
   const dataPost=async(e)=>{
     e.preventDefault();
     user.score=parseInt(user.score)
-    const {name,emailid,password,imageurl,score}=user;
+    const {name,emailid,password}=user;
      
     const res= await axios.post("http://localhost:8080/user",{
-      name,'email-id':emailid,'profile-picture-url':imageurl,password,score
+      name,'email-id':emailid,'profile-picture-url':imageurl,password
     })
     if(res){
    
@@ -83,7 +97,7 @@ const Register = () => {
                       type="file" name="imageurl"
                       className="peer block min-h-[auto] w-full rounded border-1 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear"
                       id="exampleFormControlInput22"
-                      placeholder="Upload Image"  value={user.imageurl} onChange={handleChange}/>
+                      placeholder="Upload Image"  onChange={handleImage}/>
                  
                   </div>
 

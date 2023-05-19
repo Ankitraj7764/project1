@@ -14,6 +14,7 @@ import NavbarModule from './components/loggedin/NavbarModule';
 import Footer from './components/loggedin/Footer';
 import LevelCard from './components/loggedin/level/LevelCard';
 import Forgot from './components/Forgot';
+import Challenge from './components/loggedin/level/challenge/Challenge';
 
 
 
@@ -47,6 +48,12 @@ function App() {
             <>
             <NavbarModule/>
              <LevelCard/>
+             <Footer/>
+            </>}/>
+            <Route path="/problems" Component={() =>
+            <>
+            <NavbarModule/>
+             <Challenge/>
              <Footer/>
             </>}/>
 
