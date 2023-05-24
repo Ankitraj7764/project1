@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,createContext } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
+import Category from './loggedin/level/category/Category';
 
 
 
@@ -10,7 +11,9 @@ import { Navigate } from 'react-router-dom';
 function Login() {
   const [emailid, setEmailid] = useState('');
   const [password, setPassword] = useState('');
+ const [contextData, setContextData] = useState("")
   const navigate = useNavigate();
+  const UserContext = createContext();   
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,6 +23,7 @@ function Login() {
     if (response.status >= 201 && response.status<=226) {
   
       localStorage.setItem('user', JSON.stringify({ emailid, password }));
+      setContextData(emailid)
       navigate("/modules")
 
     }
@@ -32,7 +36,8 @@ function Login() {
     }
   
   return (
-    <><div>
+    <>
+    <div>
       <section className="h-screen">
         <div className="h-full">
 
@@ -113,6 +118,9 @@ function Login() {
         </div>
       </section>
     </div>
+    {/* <UserContext.Provider value={context}>
+      <Category/>
+    <UserContext.Provider/> */}
     </>
   )
 }

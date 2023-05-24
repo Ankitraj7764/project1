@@ -15,6 +15,7 @@ import Footer from './components/loggedin/Footer';
 import LevelCard from './components/loggedin/level/LevelCard';
 import Forgot from './components/Forgot';
 import Challenge from './components/loggedin/level/challenge/Challenge';
+import Category from './components/loggedin/level/category/Category';
 
 
 
@@ -44,13 +45,13 @@ function App() {
               <Login/>
             </>}/>
           <Route path="/modules" element={<Loggedin />} />
-          <Route path="/level" Component={() =>
+          <Route path="/level/:id" Component={() =>
             <>
             <NavbarModule/>
              <LevelCard/>
              <Footer/>
             </>}/>
-            <Route path="/problems" Component={() =>
+            <Route path="/problems/:id" Component={() =>
             <>
             <NavbarModule/>
              <Challenge/>
@@ -64,7 +65,12 @@ function App() {
               <Navbar />
               <Register/>
             </>}/>
+          <Route path="/detail/:id" element={<Category/>}/>
+             
+
+           
         </Routes>
+        
     
       </BrowserRouter>
      

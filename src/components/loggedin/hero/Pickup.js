@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PickupChild from './PickupChild'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 const Pickup = () => {
     const [fData, setfData] = useState([])
@@ -21,22 +23,22 @@ const Pickup = () => {
      
         setfLevel(dataLevel)
       
-     for(let i=0;i<dataLevel.length;i++){
+    
         const add_level= await axios.post("http://localhost:8080/add-level-in-module",{  
    
 
-        "module-name":`Test_module_${i+1}`,
+        "module-name":"Test_module_3",
         "extra-level":{
             
-                "level-name":`${dataLevel[i]._id}`
+                "level-name":`${dataLevel[5]._id}`
                
             
-        }
+     
         
               
-        })
+        }})
 
-     }
+     
 
     }
     useEffect(() => {
@@ -55,7 +57,7 @@ const Pickup = () => {
                         fData.map((e) => {
 
                             return (
-                            <a href="/level" key={e._id}>
+                            <a href={`/level/${e._id}`} key={e._id} >
                                 <div className="flex justify-center items-center mt-4 h-12 w-40 md:h-20 md:w-40 hover:bg-white hover:duration-300 rounded-lg bg-teal-400 m-2 ">
 
                                     <span>{e.modulename}</span>
