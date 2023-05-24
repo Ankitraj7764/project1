@@ -5,11 +5,16 @@ import { Link } from 'react-router-dom'
 
 
 const Pickup = () => {
+   
     const [fData, setfData] = useState([])
     const [fLevel, setfLevel] = useState([])
-  
-    const fetchData = async () => {
-        const val = await axios.get("http://localhost:8080/get-all-modules");
+   const serverURL= process.env.REACT_APP_SERVERURL;
+
+   const fetchData = async () => {
+        console.log(process.env)
+        console.log(process.env.REACT_APP_SERVERURL)
+       
+        const val = await axios.get(`${serverURL}/get-all-modules` );
 
        const data = await val.data.data.data;
         setfData(data)
@@ -17,14 +22,14 @@ const Pickup = () => {
 
     }
     const fetchLevel = async () => {
-        const valLevel= await axios.get("http://localhost:8080/get-all-levels");
+        const valLevel= await axios.get(`${serverURL}/get-all-levels`);
        
        const dataLevel= await valLevel.data.data.data;
      
         setfLevel(dataLevel)
       
     
-        const add_level= await axios.post("http://localhost:8080/add-level-in-module",{  
+        const add_level= await axios.post(`${serverURL}/add-level-in-module`,{  
    
 
         "module-name":"Test_module_3",

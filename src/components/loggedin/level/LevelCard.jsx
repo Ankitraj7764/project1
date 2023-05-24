@@ -10,12 +10,13 @@ const LevelCard = () => {
 
     const route = useParams()
     const idValue = route.id;
+    const serverURL= process.env.REACT_APP_SERVERURL;
 
     const moduleData = async () => {
         let arr = [];
 
 
-        const val = await axios.get("http://localhost:8080/get-all-modules");
+        const val = await axios.get(`${serverURL}/get-all-modules`);
 
         const data = await val.data.data.data;
         data.forEach(element => {
@@ -24,7 +25,7 @@ const LevelCard = () => {
 
 
                 element.levellist.forEach(async (i) => {
-                    const val = await axios.get("http://localhost:8080/get-all-levels");
+                    const val = await axios.get(`${serverURL}/get-all-levels`);
 
                     const data = await val.data.data.data;
                     data.forEach(async (j) => {
@@ -32,7 +33,7 @@ const LevelCard = () => {
 
                         if (j._id === i.levelname) {
 
-                            const valLevel = await axios.get("http://localhost:8080/get-all-categories");
+                            const valLevel = await axios.get(`${serverURL}/get-all-categories`);
 
                             const dataLevel = await valLevel.data.data.data;
                             j.categorylist.forEach((k) => {
@@ -54,14 +55,14 @@ const LevelCard = () => {
     }
 
     const fetchCategory = async () => {
-        const valLevel = await axios.get("http://localhost:8080/get-all-categories");
+        const valLevel = await axios.get(`${serverURL}/get-all-categories`);
 
         const dataLevel = await valLevel.data.data.data;
 
 
 
 
-        const add_level = await axios.post("http://localhost:8080/add-category-in-level", {
+        const add_level = await axios.post(`${serverURL}/add-category-in-level`, {
 
 
             "level-name": "test_level_4",

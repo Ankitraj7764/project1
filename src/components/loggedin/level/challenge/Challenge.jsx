@@ -8,13 +8,13 @@ const Challenge = () => {
     const [fLevel, setfLevel] = useState([])
     const id=useParams();
     const idValue=id.id;
-    
+    const serverURL= process.env.REACT_APP_SERVERURL;
    let data;
   
 
    
       const fetchLevel = async () => {
-        const valLevel= await axios.get("http://localhost:8080/get-all-categories");
+        const valLevel= await axios.get(`${serverURL}/get-all-categories`);
        
        const dataLevel= await valLevel.data.data.data;
 
@@ -28,7 +28,7 @@ const Challenge = () => {
       
       }
       console.log(fData)
-  data=  await axios.post("http://localhost:8080/add-challenge-in-category",
+  data=  await axios.post(`${serverURL}/add-challenge-in-category`,
         { 
             "category-name":"test_category_10",
             "extra-challenge":{

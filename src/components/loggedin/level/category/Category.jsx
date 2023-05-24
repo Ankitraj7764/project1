@@ -14,9 +14,10 @@ function Category() {
  const [waitImage, setWaitImage] = useState(false)
     const route=useParams()
     const idValue=route.id;
+    const serverURL= process.env.REACT_APP_SERVERURL;
    
     const fetchCategory = async () => {
-        const valLevel= await axios.get("http://localhost:8080/get-all-categories");
+        const valLevel= await axios.get(`${serverURL}/get-all-categories`);
        
        const dataLevel= await valLevel.data.data.data;
        
@@ -65,7 +66,7 @@ function Category() {
    const finalSubmit=async(e)=>{
   e.preventDefault();
   const name=problems.challengename;
- const res=await axios.post("http://localhost:8080/submit-solution",{'user-name':name,'solution-url':imageurl,'problem-name':name})
+ const res=await axios.post(`${serverURL}/submit-solution`,{'user-name':name,'solution-url':imageurl,'problem-name':name})
   
  
  if(res.status===201 || res.status===200){

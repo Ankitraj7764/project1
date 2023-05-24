@@ -44,8 +44,10 @@ const Register = () => {
     e.preventDefault();
     user.score = parseInt(user.score)
     const { name, emailid, password } = user;
+    const serverURL= process.env.REACT_APP_SERVERURL;
+    
 
-    const res = await axios.post("http://localhost:8080/user", {
+    const res = await axios.post(`${serverURL}/user`, {
       name, 'email-id': emailid, 'profile-picture-url': imageurl, password
     })
     if (res) {

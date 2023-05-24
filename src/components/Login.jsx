@@ -17,8 +17,8 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const response = await axios.post("http://localhost:8080/login", { emailid, password })
+    const serverURL= process.env.REACT_APP_SERVERURL;
+    const response = await axios.post(`${serverURL}/login`, { emailid, password })
    
     if (response.status >= 201 && response.status<=226) {
   
